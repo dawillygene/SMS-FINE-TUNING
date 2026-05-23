@@ -1,44 +1,25 @@
-package com.dawillygene.smsclone
+package com.dawillygene.smsclone.data.repository
 
 import android.content.Context
 import android.net.Uri
 import android.provider.ContactsContract
 import androidx.documentfile.provider.DocumentFile
+import com.dawillygene.smsclone.data.model.Conversation
+import com.dawillygene.smsclone.data.model.ExportResult
+import com.dawillygene.smsclone.data.model.MessageEntry
+import com.dawillygene.smsclone.data.model.SmsMessage
 import com.google.gson.GsonBuilder
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-data class SmsMessage(
-    val id: Long,
-    val address: String,
-    val body: String?,
-    val date: Long,
-    val type: Int,    // 1 = received, 2 = sent
-    val threadId: Long
-)
-
-data class Conversation(
-    val threadId: Long,
-    val contactName: String,
-    val address: String,
-    val messages: List<MessageEntry>
-)
-
-data class MessageEntry(
-    val sender: String,  // "me" or "contactName"
-    val body: String?,
-    val timestamp: Long,
-    val dateFormatted: String
-)
-
 class SmsRepository(private val context: Context) {
 
     fun fetchAllSms(): List<SmsMessage> {
         val messages = mutableListOf<SmsMessage>()
         val projection = arrayOf("_id", "address", "body", "date", "type", "thread_id")
-        val uri = Uri.parse("content://sms") // gets both inbox and sent
+        val uri = Uri.parse("content://sms")
         val cursor = context.contentResolver.query(uri, projection, null, null, "date ASC")
 
         cursor?.use {
@@ -122,7 +103,6 @@ class SmsRepository(private val context: Context) {
             }
         }
 
-        // Fallback to app-specific directory
         val exportDir = context.getExternalFilesDir("sms_backups")
         exportDir?.let { dir ->
             if (!dir.exists()) dir.mkdirs()
@@ -138,5 +118,3 @@ class SmsRepository(private val context: Context) {
         return ExportResult(false, "Failed to access storage", 0)
     }
 }
-
-data class ExportResult(val success: Boolean, val message: String, val count: Int)
