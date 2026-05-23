@@ -1,11 +1,11 @@
-# SMS Clone 📱
+# SMS Clone
 
 A specialized Android tool designed to bridge the gap between mobile communication and AI dataset preparation. This app extracts SMS conversations and transforms them into clean, structured JSON files perfect for training Large Language Models (LLMs) or fine-tuning conversational AI.
 
-## 🎯 Project Intention
+## Project Intention
 The primary goal of **SMS Clone** is to empower developers and researchers to create personal conversational datasets from their own device history. By grouping fragmented SMS messages into chronological, contact-specific threads, it provides a high-quality data source for training AI that understands personal context and communication styles.
 
-## ✨ Key Features
+## Key Features
 - **Forensic Acquisition Engine**: One-tap extraction of Call Logs, Contacts, Calendar Events, Browser History, and App Usage Statistics.
 - **Media EXIF Analysis**: Automatically extracts GPS coordinates, device models, and timestamps from photos for geospatial mapping.
 - **Chain of Custody (Integrity)**: Generates SHA-256 hashes for every extracted file, ensuring data integrity and forensically sound evidence handling.
@@ -18,7 +18,7 @@ The primary goal of **SMS Clone** is to empower developers and researchers to cr
 - **Premium Forensic UI**: A professional dark teal interface designed for rapid field acquisition.
 - **SQLite Recovery (Root)**: Integrated hooks for parsing unallocated database pages to recover deleted records on rooted devices.
 
-## 🛠 Technology Stack
+## Technology Stack
 - **Language**: Kotlin
 - **Asynchronous Logic**: Kotlin Coroutines & Supervisor Jobs
 - **Background Processing**: Foreground Services & WorkManager API
@@ -29,14 +29,24 @@ The primary goal of **SMS Clone** is to empower developers and researchers to cr
 - **Storage**: Storage Access Framework (SAF) & DocumentFile API
 - **UI Components**: Material 3, CoordinatorLayout, Splash Screen API
 
-## 🚀 How to Use
+## How to Use
 1. **Grant Permissions**: Upon first launch, the app will request access to SMS, Contacts, and Notifications.
 2. **Select Storage**: Tap **"STORAGE PATH"** to define where you want your JSON files to live.
 3. **Manual Export**: Hit **"EXPORT DATA"** to generate your initial dataset.
 4. **Safety Net**: The app will start monitoring in the background. Check your storage folder for `deleted_safety_net.jsonl` to see the change history.
 5. **Schedule**: Toggle **"Auto-Sync"** to automate the daily extraction process.
 
+## Screenshots
+### SMS Monitoring Notification
+![SMS monitoring notification](docs/screenshots/sms-monitor-notification.jpg)
+
+### Manual SMS Export
+![Manual SMS export screen](docs/screenshots/sms-export-screen.jpg)
+
+### Forensic Export
+![Forensic export screen](docs/screenshots/forensic-export-screen.jpg)
+
 ---
 
-### Created by [@dawillygene](https://github.com/dawillygene) ✍️
+### Created by [@dawillygene](https://github.com/dawillygene)
 *Transforming personal data into intelligent insights.*
