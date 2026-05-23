@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.exifinterface)
     implementation(libs.androidx.core.splashscreen)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
