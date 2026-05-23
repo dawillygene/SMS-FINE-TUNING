@@ -1,9 +1,9 @@
-# DawillyGene SMS Clone 📱
+# SMS Clone 📱
 
 A specialized Android tool designed to bridge the gap between mobile communication and AI dataset preparation. This app extracts SMS conversations and transforms them into clean, structured JSON files perfect for training Large Language Models (LLMs) or fine-tuning conversational AI.
 
 ## 🎯 Project Intention
-The primary goal of **DawillyGene SMS** is to empower developers and researchers to create personal conversational datasets from their own device history. By grouping fragmented SMS messages into chronological, contact-specific threads, it provides a high-quality data source for training AI that understands personal context and communication styles.
+The primary goal of **SMS Clone** is to empower developers and researchers to create personal conversational datasets from their own device history. By grouping fragmented SMS messages into chronological, contact-specific threads, it provides a high-quality data source for training AI that understands personal context and communication styles.
 
 ## ✨ Key Features
 - **Intelligent Threading**: Automatically groups messages by contact and `thread_id` to maintain conversation flow.
