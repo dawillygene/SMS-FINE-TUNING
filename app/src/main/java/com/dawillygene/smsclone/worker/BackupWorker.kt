@@ -1,13 +1,15 @@
-package com.dawillygene.smsclone
+package com.dawillygene.smsclone.worker
 
-import android.content.Context
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Context
 import android.os.Build
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.dawillygene.smsclone.R
+import com.dawillygene.smsclone.data.repository.SmsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -45,7 +47,7 @@ class BackupWorker(context: Context, params: WorkerParameters) : CoroutineWorker
         createNotificationChannel()
         
         val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(R.drawable.dawillygene) // Using the logo
+            .setSmallIcon(R.drawable.dawillygene)
             .setContentTitle(title)
             .setContentText(content)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
