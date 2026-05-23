@@ -1,15 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SMSCLONE" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/accent_mint</item>
+        <item name="colorOnPrimary">@color/primary_dark_teal</item>
+        <item name="colorPrimaryContainer">@color/secondary_teal</item>
+        <item name="colorOnPrimaryContainer">@color/on_surface_light</item>
+
+        <item name="colorSurface">@color/primary_dark_teal</item>
+        <item name="colorOnSurface">@color/on_surface_light</item>
+        <item name="colorSurfaceVariant">@color/card_background</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_light</item>
+
+        <item name="android:windowBackground">@color/primary_dark_teal</item>
+        <item name="android:statusBarColor">@color/primary_dark_teal</item>
     </style>
 
     <style name="Theme.SMSCLONE" parent="Base.Theme.SMSCLONE" />
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/dawillygene</item>
-        <item name="windowSplashScreenBackground">?attr/colorSurface</item>
+        <item name="windowSplashScreenBackground">@color/primary_dark_teal</item>
         <item name="postSplashScreenTheme">@style/Theme.SMSCLONE</item>
     </style>
 </resources>
