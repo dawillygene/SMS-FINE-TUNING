@@ -1,4 +1,4 @@
-package com.dawillygene.smsclone
+package com.dawillygene.smsclone.ui
 
 import android.Manifest
 import android.content.Intent
@@ -18,6 +18,11 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.dawillygene.smsclone.R
+import com.dawillygene.smsclone.data.model.ExportResult
+import com.dawillygene.smsclone.data.repository.SmsRepository
+import com.dawillygene.smsclone.service.SmsMonitorService
+import com.dawillygene.smsclone.worker.BackupWorker
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -97,6 +102,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 123 && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+            startSmsMonitorService()
             exportMessages()
         } else {
             tvStatus.text = "Permissions denied."
@@ -104,6 +110,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun exportMessages() {
+        startSmsMonitorService()
         tvStatus.text = "Initializing export..."
         progressIndicator.visibility = View.VISIBLE
         btnExport.isEnabled = false
@@ -124,6 +131,15 @@ class MainActivity : AppCompatActivity() {
             progressIndicator.visibility = View.GONE
             btnExport.isEnabled = true
             tvStatus.text = result.message
+        }
+    }
+
+    private fun startSmsMonitorService() {
+        val intent = Intent(this, SmsMonitorService::class.java)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
         }
     }
 
