@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
-    tools:context=".MainActivity">
+    android:background="@color/primary_dark_teal"
+    tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,7 +19,8 @@
             android:layout_height="?attr/actionBarSize"
             app:title="SMS Clone"
             app:titleCentered="true"
-            app:titleTextAppearance="?attr/textAppearanceHeadlineMedium" />
+            app:titleTextColor="@color/on_surface_light"
+            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,14 +37,14 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Hero Section -->
+            <!-- Hero Section / Status Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                app:cardBackgroundColor="?attr/colorPrimaryContainer"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/secondary_teal"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="8dp"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -53,21 +54,30 @@
                     android:orientation="vertical"
                     android:padding="32dp">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/dawillygene"
+                        app:tint="@color/accent_mint" />
+
                     <TextView
+                        android:id="@+id/heroStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ready to Sync"
+                        android:layout_marginTop="16dp"
+                        android:text="System Protected"
                         android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                        android:textColor="?attr/colorOnPrimaryContainer" />
+                        android:textColor="@color/accent_mint"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Your messages are safe locally"
+                        android:layout_marginTop="4dp"
+                        android:text="Monitoring all SMS changes"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="?attr/colorOnPrimaryContainer"
-                        android:alpha="0.8" />
+                        android:textColor="@color/on_surface_light"
+                        android:alpha="0.7" />
 
                 </LinearLayout>
 
@@ -76,57 +86,54 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginBottom="12dp"
-                android:text="ACTIONS"
+                android:text="CONTROLS"
                 android:textAppearance="?attr/textAppearanceLabelLarge"
-                android:textColor="?attr/colorOutline" />
+                android:textColor="@color/accent_mint"
+                android:letterSpacing="0.1" />
 
-            <!-- Main Export Action -->
+            <!-- Main Actions -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnExport"
                         android:layout_width="match_parent"
                         android:layout_height="64dp"
-                        android:text="Export All Now"
+                        android:text="EXPORT DATA"
+                        android:textColor="@color/primary_dark_teal"
+                        android:backgroundTint="@color/accent_mint"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
-                        app:cornerRadius="16dp"
+                        android:textStyle="bold"
+                        app:cornerRadius="20dp"
                         app:icon="@android:drawable/ic_menu_upload"
+                        app:iconTint="@color/primary_dark_teal"
                         app:iconSize="24dp" />
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:text="SETTINGS"
-                android:textAppearance="?attr/textAppearanceLabelLarge"
-                android:textColor="?attr/colorOutline" />
-
-            <!-- Configuration -->
+            <!-- Settings -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -141,14 +148,17 @@
                         android:layout_height="wrap_content"
                         android:gravity="start|center_vertical"
                         android:padding="16dp"
-                        android:text="Storage Path: Not set"
+                        android:text="STORAGE PATH"
+                        android:textColor="@color/on_surface_light"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
-                        app:icon="@android:drawable/ic_menu_save" />
+                        app:icon="@android:drawable/ic_menu_save"
+                        app:iconTint="@color/accent_mint" />
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp" />
+                        android:layout_marginHorizontal="16dp"
+                        app:dividerColor="@color/secondary_teal" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -161,13 +171,16 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Daily Auto-backup"
+                            android:text="Auto-Sync"
+                            android:textColor="@color/on_surface_light"
                             android:textAppearance="?attr/textAppearanceBodyLarge" />
 
                         <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/switchAutoBackup"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            app:thumbTint="@color/accent_mint"
+                            app:trackTint="@color/secondary_teal" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -178,10 +191,11 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/primary_dark_teal"
+                app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="?attr/colorOutlineVariant">
+                app:strokeColor="@color/secondary_teal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -193,9 +207,11 @@
                         android:id="@+id/tvStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Log: Ready to process"
+                        android:text="System Initialized"
+                        android:textAlignment="center"
                         android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="?attr/colorOnSurfaceVariant" />
+                        android:textColor="@color/on_surface_light"
+                        android:alpha="0.6" />
 
                 </LinearLayout>
 
@@ -208,9 +224,11 @@
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressIndicator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:indeterminate="true"
         android:visibility="gone"
+        app:indicatorColor="@color/accent_mint"
+        app:trackColor="@color/secondary_teal"
         app:layout_anchor="@id/toolbar"
         app:layout_anchorGravity="bottom" />
 
