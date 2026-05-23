@@ -1,17 +1,20 @@
 [versions]
-agp = "9.2.1"
-coreKtx = "1.10.1"
+agp = "8.13.2"
+coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.10.0"
-activityKtx = "1.8.0"
-constraintlayout = "2.1.4"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activityKtx = "1.9.3"
+constraintlayout = "2.2.0"
 gson = "2.10.1"
-workRuntimeKtx = "2.9.0"
+workRuntimeKtx = "2.10.0"
 documentfile = "1.1.0"
-splashscreen = "1.2.0"
+splashscreen = "1.0.1"
+room = "2.6.1"
+ksp = "1.9.22-1.0.17"
+kotlin = "1.9.22"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +28,13 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
 androidx-documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentfile" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
