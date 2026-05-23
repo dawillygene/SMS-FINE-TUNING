@@ -37,7 +37,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Hero Section / Status Card -->
+            <!-- Hero Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,7 +58,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:src="@drawable/dawillygene"
-                        app:tint="@color/accent_mint" />
+                        app:tint="@color/accent_mint"
+                        android:contentDescription="App Logo" />
 
                     <TextView
                         android:id="@+id/heroStatus"
@@ -88,12 +89,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="12dp"
-                android:text="CONTROLS"
+                android:text="FORENSIC EXPORT"
                 android:textAppearance="?attr/textAppearanceLabelLarge"
                 android:textColor="@color/accent_mint"
                 android:letterSpacing="0.1" />
 
-            <!-- Main Actions -->
+            <!-- Forensic Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,23 +109,41 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
+                    <CheckBox android:id="@+id/cbCallLogs" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Call Logs" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+                    <CheckBox android:id="@+id/cbContacts" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contacts" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+                    <CheckBox android:id="@+id/cbCalendar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Calendar Events" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+                    <CheckBox android:id="@+id/cbBrowser" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Browser History" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+                    <CheckBox android:id="@+id/cbMediaExif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Media EXIF Metadata" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+                    <CheckBox android:id="@+id/cbAppUsage" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="App Usage Stats" android:textColor="@color/on_surface_light" android:buttonTint="@color/accent_mint" />
+
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnExport"
+                        android:id="@+id/btnForensicExport"
                         android:layout_width="match_parent"
                         android:layout_height="64dp"
-                        android:text="EXPORT DATA"
+                        android:layout_marginTop="16dp"
+                        android:text="START FORENSIC ACQUISITION"
                         android:textColor="@color/primary_dark_teal"
                         android:backgroundTint="@color/accent_mint"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
                         android:textStyle="bold"
                         app:cornerRadius="20dp"
-                        app:icon="@android:drawable/ic_menu_upload"
+                        app:icon="@android:drawable/ic_menu_camera"
                         app:iconTint="@color/primary_dark_teal"
                         app:iconSize="24dp" />
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="12dp"
+                android:text="SETTINGS"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/accent_mint"
+                android:letterSpacing="0.1" />
 
             <!-- Settings -->
             <com.google.android.material.card.MaterialCardView
@@ -140,6 +159,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="8dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center_vertical"
+                        android:padding="16dp"
+                        android:text="MANUAL SMS EXPORT"
+                        android:textColor="@color/on_surface_light"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        app:icon="@android:drawable/ic_menu_upload"
+                        app:iconTint="@color/accent_mint" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        app:dividerColor="@color/secondary_teal" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnSelectPath"
@@ -171,7 +208,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Auto-Sync"
+                            android:text="Daily Auto-Sync"
                             android:textColor="@color/on_surface_light"
                             android:textAppearance="?attr/textAppearanceBodyLarge" />
 
